@@ -43,7 +43,6 @@
                 radial-gradient(ellipse at 50% 100%, rgba(201, 169, 110, 0.03) 0%, transparent 70%);
         }
 
-        /* ============ STICKY TOP BAR ============ */
         .sticky-bar {
             position: sticky;
             top: 0;
@@ -77,8 +76,8 @@
             margin: 0 2px;
         }
         .sticky-bar .product-preview {
-            width: 34px;
-            height: 34px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             border: 2px solid var(--border);
             background: var(--bg-card);
@@ -99,11 +98,11 @@
             object-fit: cover;
         }
         .sticky-bar .product-preview .placeholder-icon {
-            font-size: 16px;
+            font-size: 26px;
             opacity: 0.6;
         }
         .sticky-bar .plus-icon {
-            font-size: 14px;
+            font-size: 20px;
             color: var(--gold);
             font-weight: bold;
         }
@@ -114,14 +113,12 @@
             margin: 0 6px;
         }
 
-        /* ============ MAIN CONTAINER ============ */
         .container {
             max-width: 500px;
             margin: 0 auto;
             padding: 0 14px 30px;
         }
 
-        /* ============ HEADER ============ */
         .header {
             text-align: center;
             padding: 10px 0 6px;
@@ -163,7 +160,6 @@
             margin-top: 8px;
         }
 
-        /* ============ SECTION TITLES ============ */
         .section-title {
             font-size: 13px;
             font-weight: 700;
@@ -185,7 +181,6 @@
             background: var(--border-gold);
         }
 
-        /* ============ HORIZONTAL PRODUCT ROW ============ */
         .product-row {
             display: flex;
             gap: 9px;
@@ -203,7 +198,7 @@
 
         .product-card {
             flex: 0 0 auto;
-            width: 85px;
+            width: 100px;
             background: var(--bg-card);
             border: 2px solid var(--border);
             border-radius: var(--radius-sm);
@@ -213,7 +208,7 @@
             transition: var(--transition);
             scroll-snap-align: center;
             position: relative;
-            min-height: 130px;
+            min-height: 150px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -251,8 +246,8 @@
             transform: scale(1);
         }
         .product-card .product-img {
-            width: 56px;
-            height: 56px;
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--border);
@@ -276,7 +271,6 @@
             letter-spacing: 0.8px;
         }
 
-        /* ============ QUANTITY & DELIVERY SECTION ============ */
         .option-row {
             display: flex;
             gap: 9px;
@@ -324,7 +318,6 @@
             color: var(--gold);
         }
 
-        /* ============ FORM FIELDS ============ */
         .form-group {
             margin-bottom: 12px;
         }
@@ -369,7 +362,6 @@
             cursor: pointer;
         }
 
-        /* ============ PRICE SUMMARY (BOTTOM) ============ */
         .price-summary {
             background: var(--bg-card);
             border: 2px solid var(--border-gold);
@@ -403,7 +395,6 @@
             color: var(--gold-light);
         }
 
-        /* ============ BUTTONS ROW ============ */
         .buttons-row {
             display: flex;
             gap: 10px;
@@ -484,7 +475,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* ============ TOAST / SUCCESS MESSAGE ============ */
         .toast {
             position: fixed;
             top: 20px;
@@ -511,16 +501,15 @@
             border-color: var(--danger);
         }
 
-        /* ============ RESPONSIVE ============ */
         @media (max-width: 380px) {
             .product-card {
-                width: 70px;
+                width: 80px;
                 padding: 8px 4px;
-                min-height: 110px;
+                min-height: 130px;
             }
             .product-card .product-img {
-                width: 44px;
-                height: 44px;
+                width: 56px;
+                height: 56px;
             }
             .product-card .product-name {
                 font-size: 9px;
@@ -529,8 +518,8 @@
                 font-size: 7px;
             }
             .sticky-bar .product-preview {
-                width: 30px;
-                height: 30px;
+                width: 36px;
+                height: 36px;
             }
             .option-btn {
                 min-width: 80px;
@@ -553,16 +542,15 @@
 
         @media (min-width: 420px) {
             .product-card {
-                width: 95px;
-                min-height: 140px;
+                width: 110px;
+                min-height: 160px;
             }
             .product-card .product-img {
-                width: 62px;
-                height: 62px;
+                width: 82px;
+                height: 82px;
             }
         }
 
-        /* ============ MISC ============ */
         .required-star {
             color: #e74c3c;
         }
@@ -580,7 +568,6 @@
 </head>
 <body>
 
-    <!-- ==================== STICKY TOP BAR ==================== -->
     <div class="sticky-bar" id="stickyBar">
         <div class="pack-preview-group" id="pack1Group">
             <span class="pack-label">باك 1</span>
@@ -605,10 +592,7 @@
         </div>
     </div>
 
-    <!-- ==================== MAIN CONTAINER ==================== -->
     <div class="container">
-
-        <!-- HEADER -->
         <div class="header">
             <img id="siteLogo" src="images/logo.png" alt="Eagle Noir Logo" class="logo-img">
             <div class="brand-name">Eagle Noir</div>
@@ -616,7 +600,6 @@
             <div class="pack-badge">⚡ Pack Exclusif</div>
         </div>
 
-        <!-- ============ PACK 1 WATCHES ============ -->
         <div class="section-title">⌚ اختر ساعتك من IEKE (الباك الأول)</div>
         <div class="product-row" id="watchRow1">
             <div class="product-card" data-type="watch" data-pack="1" data-id="watch1" data-name="IEKE Royal" data-img="images/mod1.jpg" onclick="selectProduct(this)">
@@ -645,7 +628,6 @@
             </div>
         </div>
 
-        <!-- ============ PACK 1 PERFUMES ============ -->
         <div class="section-title">🧴 اختر عطرك المفضل (الباك الأول)</div>
         <div class="product-row" id="perfumeRow1">
             <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume1" data-name="My Way" data-img="images/my way.jpg" onclick="selectProduct(this)">
@@ -674,7 +656,6 @@
             </div>
         </div>
 
-        <!-- ============ PACK 2 SECTIONS (HIDDEN) ============ -->
         <div id="pack2Sections" class="hidden">
             <div class="section-title">⌚ اختر ساعتك من IEKE (الباك الثاني)</div>
             <div class="product-row" id="watchRow2">
@@ -733,25 +714,23 @@
             </div>
         </div>
 
-        <!-- ============ QUANTITY ============ -->
         <div class="section-title">📦 عدد الباك</div>
         <div class="option-row" id="quantityRow">
-            <div class="option-btn selected" data-qty="1" onclick="selectQuantity(this)">
+            <div class="option-btn" data-qty="1" onclick="selectQuantity(this)">
                 <span class="option-icon">📦</span>
                 <span>باك واحد</span>
                 <span class="option-price">4500 دج</span>
             </div>
             <div class="option-btn" data-qty="2" onclick="selectQuantity(this)">
                 <span class="option-icon">📦📦</span>
-                <span>باكين</span>
+                <span>اثنين باك</span>
                 <span class="option-price">9000 دج</span>
             </div>
         </div>
 
-        <!-- ============ DELIVERY ============ -->
         <div class="section-title">🚚 طريقة التوصيل</div>
         <div class="option-row" id="deliveryRow">
-            <div class="option-btn selected" data-delivery="office" data-price="400" onclick="selectDelivery(this)">
+            <div class="option-btn" data-delivery="office" data-price="400" onclick="selectDelivery(this)">
                 <span class="option-icon">🏢</span>
                 <span>توصيل للمكتب</span>
                 <span class="option-price" id="officePrice">400 دج</span>
@@ -763,7 +742,6 @@
             </div>
         </div>
 
-        <!-- ============ CUSTOMER INFO ============ -->
         <div class="section-title">📋 معلومات التوصيل</div>
         <form id="orderForm" onsubmit="handleSubmit(event)">
             <div class="form-group">
@@ -772,7 +750,8 @@
             </div>
             <div class="form-group">
                 <label>رقم الهاتف <span class="required-star">*</span></label>
-                <input type="tel" id="phone" placeholder="05xxxxxxxx" required pattern="[0-9]{10}" title="رقم هاتف جزائري 10 أرقام يبدأ بـ 05/06/07">
+                <!-- تم إزالة pattern و title لتجنب التعارض والاعتماد كلياً على JavaScript -->
+                <input type="tel" id="phone" placeholder="05xxxxxxxx" required>
             </div>
             <div class="form-group">
                 <label>الولاية <span class="required-star">*</span></label>
@@ -795,8 +774,7 @@
                     <option value="43">43 - ميلة</option><option value="44">44 - عين الدفلى</option><option value="45">45 - النعامة</option>
                     <option value="46">46 - عين تموشنت</option><option value="47">47 - غرداية</option><option value="48">48 - غليزان</option>
                     <option value="49">49 - المغير</option><option value="50">50 - المنيعة</option><option value="51">51 - أولاد جلال</option>
-                    <option value="52">52 - برج باجي مختار</option><option value="53">53 - بني عباس</option><option value="54">54 - تيميمون</option>
-                    <option value="55">55 - تقرت</option><option value="56">56 - جانت</option><option value="57">57 - عين صالح</option>
+                    <option value="52">52 - برج باجي مختار</option><option value="53">53 - بني عباس</option><option value="54">54 - تيميمون</option><option value="55">55 - تقرت</option><option value="56">56 - جانت</option><option value="57">57 - عين صالح</option>
                     <option value="58">58 - عين قزام</option>
                 </select>
             </div>
@@ -809,23 +787,20 @@
                 <input type="text" id="notes" placeholder="أي ملاحظات تود إضافتها...">
             </div>
 
-            <!-- PRICE SUMMARY -->
             <div class="price-summary pulse-gold" id="priceSummary">
                 <div class="total-label">💰 السعر الإجمالي</div>
-                <div class="total-price" id="totalPriceDisplay">4900 دج</div>
+                <div class="total-price" id="totalPriceDisplay">---</div>
                 <div class="price-detail" id="priceDetail">
-                    الباك: <span>4500 دج</span> |
-                    التوصيل: <span id="deliveryCostDisplay">400 دج</span>
+                    الرجاء اختيار عدد الباك وطريقة التوصيل
                 </div>
             </div>
 
-            <!-- BUTTONS ROW -->
             <div class="buttons-row">
                 <button type="submit" class="submit-btn" id="submitBtn">
                     <span class="btn-text">✨ تأكيد الطلب</span>
                     <span class="btn-spinner"></span>
                 </button>
-                <a href="https://www.instagram.com/" target="_blank" class="instagram-btn" id="instagramBtn">
+                <a href="https://www.instagram.com/eaglenoir.official/" target="_blank" class="instagram-btn" id="instagramBtn">
                     📸 رؤية الصور الحقيقية للمنتج
                 </a>
             </div>
@@ -836,26 +811,22 @@
         </p>
     </div>
 
-    <!-- TOAST -->
     <div class="toast" id="toast"></div>
 
     <script>
-        // ==================== روابط قابلة للتخصيص ====================
-        const LOGO_URL = 'images/logo.png'; // ⬅️ غيّر الرابط هنا إذا كان لديك لوجو مختلف
-        const INSTAGRAM_URL = 'https://www.instagram.com/eaglenoir.official/'; // ⬅️ غيّر الرابط هنا
-
+        const LOGO_URL = 'images/logo.png';
+        const INSTAGRAM_URL = 'https://www.instagram.com/eaglenoir.official/';
         document.getElementById('siteLogo').src = LOGO_URL;
         document.getElementById('instagramBtn').href = INSTAGRAM_URL;
 
-        // ==================== STATE ====================
         const state = {
             selectedWatch1: null,
             selectedPerfume1: null,
             selectedWatch2: null,
             selectedPerfume2: null,
-            quantity: 1,
-            deliveryType: 'office',
-            deliveryPrice: 400,
+            quantity: null,
+            deliveryType: null,
+            deliveryPrice: null,
         };
 
         const previewWatch1 = document.getElementById('previewWatch1');
@@ -942,9 +913,12 @@
                     resetPreview(previewWatch2, '⌚');
                     resetPreview(previewPerfume2, '🧴');
                 }
+                updateDeliveryOptions();
+                if (state.deliveryType) {
+                    updateDeliveryPrice();
+                }
+                updatePrice();
             }
-            updateDeliveryOptions();
-            updatePrice();
         }
 
         function resetPreview(element, emoji) {
@@ -971,6 +945,10 @@
         }
 
         function updateDeliveryPrice() {
+            if (state.quantity === null || state.deliveryType === null) {
+                state.deliveryPrice = null;
+                return;
+            }
             if (state.quantity === 2) {
                 state.deliveryPrice = state.deliveryType === 'office' ? 0 : 300;
             } else {
@@ -984,18 +962,29 @@
                 homePriceEl.textContent = '300 دج';
                 document.querySelector('[data-delivery="office"]').dataset.price = '0';
                 document.querySelector('[data-delivery="home"]').dataset.price = '300';
-            } else {
+            } else if (state.quantity === 1) {
                 officePriceEl.textContent = '400 دج';
                 homePriceEl.textContent = '600 دج';
                 document.querySelector('[data-delivery="office"]').dataset.price = '400';
                 document.querySelector('[data-delivery="home"]').dataset.price = '600';
+            } else {
+                officePriceEl.textContent = '400 دج';
+                homePriceEl.textContent = '600 دج';
             }
-            updateDeliveryPrice();
         }
 
         function updatePrice() {
+            if (state.quantity === null || state.deliveryType === null) {
+                totalPriceDisplay.textContent = '---';
+                deliveryCostDisplay.textContent = '---';
+                priceDetail.innerHTML = 'الرجاء اختيار عدد الباك وطريقة التوصيل';
+                return;
+            }
+
             const packPrice = state.quantity * 4500;
             updateDeliveryPrice();
+            if (state.deliveryPrice === null) return;
+
             const total = packPrice + state.deliveryPrice;
             totalPriceDisplay.textContent = total.toLocaleString('ar-DZ') + ' دج';
             deliveryCostDisplay.textContent = state.deliveryPrice.toLocaleString('ar-DZ') + ' دج';
@@ -1025,6 +1014,14 @@
                 showToast('⚠️ الرجاء اختيار الساعة والعطر للباك الثاني', true);
                 return;
             }
+            if (state.quantity === null) {
+                showToast('⚠️ الرجاء اختيار عدد الباك', true);
+                return;
+            }
+            if (state.deliveryType === null) {
+                showToast('⚠️ الرجاء اختيار طريقة التوصيل', true);
+                return;
+            }
 
             const fullName = document.getElementById('fullName').value.trim();
             const phoneRaw = document.getElementById('phone').value.trim();
@@ -1036,12 +1033,14 @@
             if (!wilaya) { showToast('⚠️ الرجاء اختيار الولاية', true); return; }
             if (!address) { showToast('⚠️ الرجاء إدخال العنوان الكامل', true); return; }
 
-            const phoneDigits = phoneRaw.replace(/\D/g, '');
+            // ✅ التحقق من رقم الهاتف الجزائري (يبدأ بـ 05/06/07 وطوله 10 أرقام)
+            const phoneDigits = phoneRaw.replace(/\D/g, ''); // يزيل أي رموز غير رقمية
             if (!/^(05|06|07)\d{8}$/.test(phoneDigits)) {
                 showToast('⚠️ رقم الهاتف غير صالح. يجب أن يبدأ بـ 05/06/07 ويتكون من 10 أرقام.', true);
                 return;
             }
 
+            updateDeliveryPrice();
             const packPrice = state.quantity * 4500;
             const totalPrice = packPrice + state.deliveryPrice;
 
@@ -1067,6 +1066,12 @@
                 await sendToGoogleSheets(orderData);
                 showToast('✅ تم إرسال الطلب بنجاح! سنتواصل معك قريباً');
                 document.getElementById('orderForm').reset();
+                state.quantity = null;
+                state.deliveryType = null;
+                state.deliveryPrice = null;
+                document.querySelectorAll('#quantityRow .option-btn, #deliveryRow .option-btn').forEach(b => b.classList.remove('selected'));
+                updatePrice();
+                updateDeliveryOptions();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
