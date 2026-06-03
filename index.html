@@ -739,7 +739,7 @@
             <div class="option-btn selected" data-qty="1" onclick="selectQuantity(this)">
                 <span class="option-icon">📦</span>
                 <span>باك واحد</span>
-                <span class="option-price">450,000 دج</span>
+                <span class="option-price">4500 دج</span>
             </div>
             <div class="option-btn" data-qty="2" onclick="selectQuantity(this)">
                 <span class="option-icon">📦📦</span>
@@ -812,9 +812,9 @@
             <!-- PRICE SUMMARY -->
             <div class="price-summary pulse-gold" id="priceSummary">
                 <div class="total-label">💰 السعر الإجمالي</div>
-                <div class="total-price" id="totalPriceDisplay">450,400 دج</div>
+                <div class="total-price" id="totalPriceDisplay">4900 دج</div>
                 <div class="price-detail" id="priceDetail">
-                    الباك: <span>450,000 دج</span> |
+                    الباك: <span>4500 دج</span> |
                     التوصيل: <span id="deliveryCostDisplay">400 دج</span>
                 </div>
             </div>
@@ -994,7 +994,7 @@
         }
 
         function updatePrice() {
-            const packPrice = state.quantity * 450000;
+            const packPrice = state.quantity * 4500;
             updateDeliveryPrice();
             const total = packPrice + state.deliveryPrice;
             totalPriceDisplay.textContent = total.toLocaleString('ar-DZ') + ' دج';
@@ -1042,7 +1042,7 @@
                 return;
             }
 
-            const packPrice = state.quantity * 450000;
+            const packPrice = state.quantity * 4500;
             const totalPrice = packPrice + state.deliveryPrice;
 
             const orderData = {
