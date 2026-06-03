@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eagle Noir | Pack IEKE + عطر</title>
     <style>
+        /* ... نفس الـ CSS السابق بدون تغيير ... */
         :root {
             --bg: #0a0a0a;
             --bg-card: #111111;
@@ -22,13 +23,11 @@
             --radius-sm: 10px;
             --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', 'Tajawal', 'Cairo', system-ui, -apple-system, sans-serif;
             background: var(--bg);
@@ -42,7 +41,6 @@
                 radial-gradient(ellipse at 50% 0%, rgba(201, 169, 110, 0.04) 0%, transparent 70%),
                 radial-gradient(ellipse at 50% 100%, rgba(201, 169, 110, 0.03) 0%, transparent 70%);
         }
-
         .sticky-bar {
             position: sticky;
             top: 0;
@@ -112,13 +110,11 @@
             background: var(--border-gold);
             margin: 0 6px;
         }
-
         .container {
             max-width: 500px;
             margin: 0 auto;
             padding: 0 14px 30px;
         }
-
         .header {
             text-align: center;
             padding: 10px 0 6px;
@@ -159,7 +155,6 @@
             letter-spacing: 1px;
             margin-top: 8px;
         }
-
         .section-title {
             font-size: 13px;
             font-weight: 700;
@@ -180,7 +175,6 @@
             height: 1px;
             background: var(--border-gold);
         }
-
         .product-row {
             display: flex;
             gap: 9px;
@@ -195,7 +189,6 @@
         .product-row::-webkit-scrollbar {
             display: none;
         }
-
         .product-card {
             flex: 0 0 auto;
             width: 100px;
@@ -270,7 +263,6 @@
             text-transform: uppercase;
             letter-spacing: 0.8px;
         }
-
         .option-row {
             display: flex;
             gap: 9px;
@@ -317,7 +309,6 @@
         .option-btn.selected .option-price {
             color: var(--gold);
         }
-
         .form-group {
             margin-bottom: 12px;
         }
@@ -361,7 +352,6 @@
             padding-left: 36px;
             cursor: pointer;
         }
-
         .price-summary {
             background: var(--bg-card);
             border: 2px solid var(--border-gold);
@@ -394,7 +384,6 @@
         .price-summary .price-detail span {
             color: var(--gold-light);
         }
-
         .buttons-row {
             display: flex;
             gap: 10px;
@@ -453,7 +442,6 @@
             transform: scale(0.96);
             background: rgba(201, 169, 110, 0.2);
         }
-
         .submit-btn .btn-spinner {
             display: none;
             width: 18px;
@@ -474,7 +462,6 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
         .toast {
             position: fixed;
             top: 20px;
@@ -500,7 +487,6 @@
             background: #2a1a1a;
             border-color: var(--danger);
         }
-
         @media (max-width: 380px) {
             .product-card {
                 width: 80px;
@@ -539,7 +525,6 @@
                 width: 100%;
             }
         }
-
         @media (min-width: 420px) {
             .product-card {
                 width: 110px;
@@ -550,7 +535,6 @@
                 height: 82px;
             }
         }
-
         .required-star {
             color: #e74c3c;
         }
@@ -567,7 +551,6 @@
     </style>
 </head>
 <body>
-
     <div class="sticky-bar" id="stickyBar">
         <div class="pack-preview-group" id="pack1Group">
             <span class="pack-label">باك 1</span>
@@ -600,6 +583,7 @@
             <div class="pack-badge">⚡ Pack Exclusif</div>
         </div>
 
+        <!-- محتوى المنتجات والخيارات كما هو بدون تغيير -->
         <div class="section-title">⌚ اختر ساعتك من IEKE (الباك الأول)</div>
         <div class="product-row" id="watchRow1">
             <div class="product-card" data-type="watch" data-pack="1" data-id="watch1" data-name="IEKE Royal" data-img="images/mod1.jpg" onclick="selectProduct(this)">
@@ -684,7 +668,6 @@
                     <span class="product-brand">IEKE</span>
                 </div>
             </div>
-
             <div class="section-title">🧴 اختر عطرك المفضل (الباك الثاني)</div>
             <div class="product-row" id="perfumeRow2">
                 <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume1-2" data-name="My Way" data-img="images/my way.jpg" onclick="selectProduct(this)">
@@ -719,12 +702,12 @@
             <div class="option-btn" data-qty="1" onclick="selectQuantity(this)">
                 <span class="option-icon">📦</span>
                 <span>باك واحد</span>
-                <span class="option-price">4500 دج</span>
+                <span class="option-price">450,000 دج</span>
             </div>
             <div class="option-btn" data-qty="2" onclick="selectQuantity(this)">
                 <span class="option-icon">📦📦</span>
                 <span>اثنين باك</span>
-                <span class="option-price">9000 دج</span>
+                <span class="option-price">900,000 دج</span>
             </div>
         </div>
 
@@ -750,13 +733,13 @@
             </div>
             <div class="form-group">
                 <label>رقم الهاتف <span class="required-star">*</span></label>
-                <!-- تم إزالة pattern و title لتجنب التعارض والاعتماد كلياً على JavaScript -->
                 <input type="tel" id="phone" placeholder="05xxxxxxxx" required>
             </div>
             <div class="form-group">
                 <label>الولاية <span class="required-star">*</span></label>
                 <select id="wilaya" required>
                     <option value="">-- اختر الولاية --</option>
+                    <!-- الخيارات كما هي بدون تغيير -->
                     <option value="01">01 - أدرار</option><option value="02">02 - الشلف</option><option value="03">03 - الأغواط</option>
                     <option value="04">04 - أم البواقي</option><option value="05">05 - باتنة</option><option value="06">06 - بجاية</option>
                     <option value="07">07 - بسكرة</option><option value="08">08 - بشار</option><option value="09">09 - البليدة</option>
@@ -805,7 +788,6 @@
                 </a>
             </div>
         </form>
-
         <p style="text-align:center;font-size:10px;color:#555;margin-top:12px;">
             © 2025 Eagle Noir. جميع الحقوق محفوظة.
         </p>
@@ -851,13 +833,11 @@
             const row = document.getElementById(rowId);
             row.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
             card.classList.add('selected');
-
             const productData = {
                 id: card.dataset.id,
                 name: card.dataset.name,
                 img: card.dataset.img,
             };
-
             if (pack === '1') {
                 if (type === 'watch') {
                     state.selectedWatch1 = productData;
@@ -980,11 +960,9 @@
                 priceDetail.innerHTML = 'الرجاء اختيار عدد الباك وطريقة التوصيل';
                 return;
             }
-
-            const packPrice = state.quantity * 4500;
+            const packPrice = state.quantity * 450000;
             updateDeliveryPrice();
             if (state.deliveryPrice === null) return;
-
             const total = packPrice + state.deliveryPrice;
             totalPriceDisplay.textContent = total.toLocaleString('ar-DZ') + ' دج';
             deliveryCostDisplay.textContent = state.deliveryPrice.toLocaleString('ar-DZ') + ' دج';
@@ -1033,15 +1011,14 @@
             if (!wilaya) { showToast('⚠️ الرجاء اختيار الولاية', true); return; }
             if (!address) { showToast('⚠️ الرجاء إدخال العنوان الكامل', true); return; }
 
-            // ✅ التحقق من رقم الهاتف الجزائري (يبدأ بـ 05/06/07 وطوله 10 أرقام)
-            const phoneDigits = phoneRaw.replace(/\D/g, ''); // يزيل أي رموز غير رقمية
+            const phoneDigits = phoneRaw.replace(/\D/g, '');
             if (!/^(05|06|07)\d{8}$/.test(phoneDigits)) {
                 showToast('⚠️ رقم الهاتف غير صالح. يجب أن يبدأ بـ 05/06/07 ويتكون من 10 أرقام.', true);
                 return;
             }
 
             updateDeliveryPrice();
-            const packPrice = state.quantity * 4500;
+            const packPrice = state.quantity * 450000;
             const totalPrice = packPrice + state.deliveryPrice;
 
             const orderData = {
@@ -1075,28 +1052,31 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
-                showToast('❌ حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى.', true);
+                showToast('❌ حدث خطأ في الإرسال. تحقق من اتصال الإنترنت أو إعدادات Google Sheets.', true);
             } finally {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
             }
         }
 
-        const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzcHCSOC9G8UyHltl71omTZKvMkVG2ikZ9yuwf349QE5jKPw_0kQ_bEu11Qe6t5Sj1J/exec';
+
         async function sendToGoogleSheets(data) {
-            if (!GOOGLE_SHEETS_URL || GOOGLE_SHEETS_URL.includes('YOUR_GOOGLE_APPS_SCRIPT')) {
-                console.warn('⚠️ Google Sheets URL غير مضبوط. بيانات الطلب (محاكاة):', data);
-                await new Promise(resolve => setTimeout(resolve, 1200));
-                return { success: true, simulated: true };
+            try {
+                await fetch(GOOGLE_SHEETS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                // مع no-cors لا يمكن قراءة الرد، ولكن الطلب يصل بنجاح
+                return { success: true };
+            } catch (error) {
+                console.error('خطأ في الإرسال:', error);
+                throw error;
             }
-            await fetch(GOOGLE_SHEETS_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            return { success: true };
         }
 
         function init() {
