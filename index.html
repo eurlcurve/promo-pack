@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eagle Noir | Pack IEKE + عطر</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --gold: #c9a96e;
+            --gold-light: #d4af37;
+            --gold-dark: #8b6914;
+            --text: #e0e0e0;
+            --text-muted: #999;
+            --border: #2a2a2a;
+            --border-gold: #3d3520;
+            --danger: #c0392b;
+            --success: #27ae60;
+            --radius: 14px;
+            --radius-sm: 10px;
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tajawal', 'Cairo', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(201, 169, 110, 0.04) 0%, transparent 70%),
+                radial-gradient(ellipse at 50% 100%, rgba(201, 169, 110, 0.03) 0%, transparent 70%);
+        }
+
+        /* ============ STICKY TOP BAR ============ */
+        .sticky-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            min-height: 60px;
+            transition: var(--transition);
+        }
+        .sticky-bar .pack-preview-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 4px 8px;
+            border: 1px solid var(--border);
+        }
+        .sticky-bar .pack-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin: 0 2px;
+        }
+        .sticky-bar .product-preview {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .sticky-bar .product-preview.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(201, 169, 110, 0.3);
+        }
+        .sticky-bar .product-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .sticky-bar .product-preview .placeholder-icon {
+            font-size: 16px;
+            opacity: 0.6;
+        }
+        .sticky-bar .plus-icon {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        .sticky-bar .pack-separator {
+            width: 2px;
+            height: 24px;
+            background: var(--border-gold);
+            margin: 0 6px;
+        }
+
+        /* ============ MAIN CONTAINER ============ */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 14px 30px;
+        }
+
+        /* ============ HEADER ============ */
+        .header {
+            text-align: center;
+            padding: 10px 0 6px;
+        }
+        .header .logo-img {
+            width: 120px;
+            height: auto;
+            max-height: 100px;
+            object-fit: contain;
+            margin-bottom: 6px;
+            filter: drop-shadow(0 4px 8px rgba(201, 169, 110, 0.3));
+        }
+        .header .brand-name {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(180deg, #e2c87c 0%, #b8942e 50%, #8b6914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+        .header .subtitle {
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .header .pack-badge {
+            display: inline-block;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 5px 16px;
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        /* ============ SECTION TITLES ============ */
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin: 18px 0 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--border-gold);
+        }
+
+        /* ============ HORIZONTAL PRODUCT ROW ============ */
+        .product-row {
+            display: flex;
+            gap: 9px;
+            overflow-x: auto;
+            padding: 4px 2px 8px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+        }
+        .product-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .product-card {
+            flex: 0 0 auto;
+            width: 85px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            scroll-snap-align: center;
+            position: relative;
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .product-card:active {
+            transform: scale(0.94);
+        }
+        .product-card.selected {
+            border-color: var(--gold);
+            background: #1a1810;
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.2), inset 0 0 20px rgba(201, 169, 110, 0.03);
+        }
+        .product-card .check-mark {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: #000;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0);
+            transition: var(--transition);
+            font-weight: bold;
+        }
+        .product-card.selected .check-mark {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .product-card .product-img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            transition: var(--transition);
+            background: #1a1a1a;
+        }
+        .product-card.selected .product-img {
+            border-color: var(--gold);
+        }
+        .product-card .product-name {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.2;
+            letter-spacing: 0.3px;
+        }
+        .product-card .product-brand {
+            font-size: 8px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* ============ QUANTITY & DELIVERY SECTION ============ */
+        .option-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .option-btn {
+            flex: 1;
+            min-width: 100px;
+            max-width: 160px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        .option-btn:active {
+            transform: scale(0.95);
+        }
+        .option-btn.selected {
+            border-color: var(--gold);
+            background: #1a1810;
+            box-shadow: 0 0 16px rgba(201, 169, 110, 0.18);
+            color: var(--gold-light);
+        }
+        .option-btn .option-icon {
+            font-size: 22px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .option-btn .option-price {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 2px;
+            font-weight: 400;
+        }
+        .option-btn.selected .option-price {
+            color: var(--gold);
+        }
+
+        /* ============ FORM FIELDS ============ */
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            color: var(--gold-light);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: #fff;
+            font-size: 14px;
+            font-family: inherit;
+            transition: var(--transition);
+            letter-spacing: 0.4px;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.06);
+        }
+        .form-group input::placeholder {
+            color: #555;
+        }
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c9a96e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 14px center;
+            padding-left: 36px;
+            cursor: pointer;
+        }
+
+        /* ============ PRICE SUMMARY (BOTTOM) ============ */
+        .price-summary {
+            background: var(--bg-card);
+            border: 2px solid var(--border-gold);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-top: 14px;
+            text-align: center;
+        }
+        .price-summary .total-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+        .price-summary .total-price {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(180deg, #f0d78c 0%, #c9a030 50%, #9b7010 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 4px 0;
+        }
+        .price-summary .price-detail {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .price-summary .price-detail span {
+            color: var(--gold-light);
+        }
+
+        /* ============ BUTTONS ROW ============ */
+        .buttons-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .submit-btn, .instagram-btn {
+            flex: 1;
+            padding: 15px 10px;
+            border-radius: var(--radius);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .submit-btn {
+            background: linear-gradient(180deg, #d4af37 0%, #b8941e 50%, #8b6910 100%);
+            color: #0a0a0a;
+            box-shadow: 0 6px 24px rgba(180, 150, 40, 0.25);
+        }
+        .submit-btn:hover {
+            box-shadow: 0 8px 30px rgba(200, 160, 50, 0.4);
+            transform: translateY(-1px);
+        }
+        .submit-btn:active {
+            transform: scale(0.96);
+            box-shadow: 0 4px 12px rgba(180, 150, 40, 0.2);
+        }
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            filter: grayscale(30%);
+        }
+        .instagram-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold-light);
+            box-shadow: 0 0 14px rgba(201, 169, 110, 0.15);
+        }
+        .instagram-btn:hover {
+            background: rgba(201, 169, 110, 0.1);
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.3);
+            transform: translateY(-1px);
+        }
+        .instagram-btn:active {
+            transform: scale(0.96);
+            background: rgba(201, 169, 110, 0.2);
+        }
+
+        .submit-btn .btn-spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid transparent;
+            border-top-color: #0a0a0a;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .submit-btn.loading .btn-spinner {
+            display: inline-block;
+        }
+        .submit-btn.loading .btn-text {
+            opacity: 0.7;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ============ TOAST / SUCCESS MESSAGE ============ */
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120px);
+            background: #1a2a1a;
+            border: 1px solid var(--success);
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            z-index: 999;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast.error {
+            background: #2a1a1a;
+            border-color: var(--danger);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 380px) {
+            .product-card {
+                width: 70px;
+                padding: 8px 4px;
+                min-height: 110px;
+            }
+            .product-card .product-img {
+                width: 44px;
+                height: 44px;
+            }
+            .product-card .product-name {
+                font-size: 9px;
+            }
+            .product-card .product-brand {
+                font-size: 7px;
+            }
+            .sticky-bar .product-preview {
+                width: 30px;
+                height: 30px;
+            }
+            .option-btn {
+                min-width: 80px;
+                padding: 10px 6px;
+                font-size: 11px;
+            }
+            .header .brand-name {
+                font-size: 22px;
+            }
+            .price-summary .total-price {
+                font-size: 26px;
+            }
+            .buttons-row {
+                flex-direction: column;
+            }
+            .submit-btn, .instagram-btn {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 420px) {
+            .product-card {
+                width: 95px;
+                min-height: 140px;
+            }
+            .product-card .product-img {
+                width: 62px;
+                height: 62px;
+            }
+        }
+
+        /* ============ MISC ============ */
+        .required-star {
+            color: #e74c3c;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .pulse-gold {
+            animation: pulseGold 2s ease-in-out infinite;
+        }
+        @keyframes pulseGold {
+            0%, 100% { box-shadow: 0 0 8px rgba(201, 169, 110, 0.2); }
+            50% { box-shadow: 0 0 22px rgba(201, 169, 110, 0.5); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== STICKY TOP BAR ==================== -->
+    <div class="sticky-bar" id="stickyBar">
+        <div class="pack-preview-group" id="pack1Group">
+            <span class="pack-label">باك 1</span>
+            <div class="product-preview" id="previewWatch1">
+                <span class="placeholder-icon">⌚</span>
+            </div>
+            <span class="plus-icon">+</span>
+            <div class="product-preview" id="previewPerfume1">
+                <span class="placeholder-icon">🧴</span>
+            </div>
+        </div>
+        <div class="pack-preview-group hidden" id="pack2Group">
+            <span class="pack-separator"></span>
+            <span class="pack-label">باك 2</span>
+            <div class="product-preview" id="previewWatch2">
+                <span class="placeholder-icon">⌚</span>
+            </div>
+            <span class="plus-icon">+</span>
+            <div class="product-preview" id="previewPerfume2">
+                <span class="placeholder-icon">🧴</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTAINER ==================== -->
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <img id="siteLogo" src="images/logo.png" alt="Eagle Noir Logo" class="logo-img">
+            <div class="brand-name">Eagle Noir</div>
+            <div class="subtitle">Luxury Pack Collection</div>
+            <div class="pack-badge">⚡ Pack Exclusif</div>
+        </div>
+
+        <!-- ============ PACK 1 WATCHES ============ -->
+        <div class="section-title">⌚ اختر ساعتك من IEKE (الباك الأول)</div>
+        <div class="product-row" id="watchRow1">
+            <div class="product-card" data-type="watch" data-pack="1" data-id="watch1" data-name="IEKE Royal" data-img="images/mod1.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/mod1.jpg" alt="IEKE Royal" class="product-img" loading="lazy">
+                <span class="product-name">Royal</span>
+                <span class="product-brand">IEKE</span>
+            </div>
+            <div class="product-card" data-type="watch" data-pack="1" data-id="watch2" data-name="IEKE Sport" data-img="images/mod2.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/mod2.jpg" alt="IEKE Sport" class="product-img" loading="lazy">
+                <span class="product-name">Sport</span>
+                <span class="product-brand">IEKE</span>
+            </div>
+            <div class="product-card" data-type="watch" data-pack="1" data-id="watch3" data-name="IEKE Classic" data-img="images/mod3.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/mod3.jpg" alt="IEKE Classic" class="product-img" loading="lazy">
+                <span class="product-name">Classic</span>
+                <span class="product-brand">IEKE</span>
+            </div>
+            <div class="product-card" data-type="watch" data-pack="1" data-id="watch4" data-name="IEKE Elite" data-img="images/mod4.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/mod4.jpg" alt="IEKE Elite" class="product-img" loading="lazy">
+                <span class="product-name">Elite</span>
+                <span class="product-brand">IEKE</span>
+            </div>
+        </div>
+
+        <!-- ============ PACK 1 PERFUMES ============ -->
+        <div class="section-title">🧴 اختر عطرك المفضل (الباك الأول)</div>
+        <div class="product-row" id="perfumeRow1">
+            <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume1" data-name="My Way" data-img="images/my way.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/my way.jpg" alt="My Way" class="product-img" loading="lazy">
+                <span class="product-name">My Way</span>
+                <span class="product-brand">Armani</span>
+            </div>
+            <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume2" data-name="Prada" data-img="images/prada.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/prada.jpg" alt="Prada" class="product-img" loading="lazy">
+                <span class="product-name">Prada</span>
+                <span class="product-brand">Prada</span>
+            </div>
+            <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume3" data-name="Gucci" data-img="images/gucci.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/gucci.jpg" alt="Gucci" class="product-img" loading="lazy">
+                <span class="product-name">Gucci</span>
+                <span class="product-brand">Gucci</span>
+            </div>
+            <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume4" data-name="Good Girl" data-img="images/good girl.jpg" onclick="selectProduct(this)">
+                <span class="check-mark">✓</span>
+                <img src="images/good girl.jpg" alt="Good Girl" class="product-img" loading="lazy">
+                <span class="product-name">Good Girl</span>
+                <span class="product-brand">Carolina H.</span>
+            </div>
+        </div>
+
+        <!-- ============ PACK 2 SECTIONS (HIDDEN) ============ -->
+        <div id="pack2Sections" class="hidden">
+            <div class="section-title">⌚ اختر ساعتك من IEKE (الباك الثاني)</div>
+            <div class="product-row" id="watchRow2">
+                <div class="product-card" data-type="watch" data-pack="2" data-id="watch1-2" data-name="IEKE Royal" data-img="images/mod1.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/mod1.jpg" alt="IEKE Royal" class="product-img" loading="lazy">
+                    <span class="product-name">Royal</span>
+                    <span class="product-brand">IEKE</span>
+                </div>
+                <div class="product-card" data-type="watch" data-pack="2" data-id="watch2-2" data-name="IEKE Sport" data-img="images/mod2.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/mod2.jpg" alt="IEKE Sport" class="product-img" loading="lazy">
+                    <span class="product-name">Sport</span>
+                    <span class="product-brand">IEKE</span>
+                </div>
+                <div class="product-card" data-type="watch" data-pack="2" data-id="watch3-2" data-name="IEKE Classic" data-img="images/mod3.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/mod3.jpg" alt="IEKE Classic" class="product-img" loading="lazy">
+                    <span class="product-name">Classic</span>
+                    <span class="product-brand">IEKE</span>
+                </div>
+                <div class="product-card" data-type="watch" data-pack="2" data-id="watch4-2" data-name="IEKE Elite" data-img="images/mod4.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/mod4.jpg" alt="IEKE Elite" class="product-img" loading="lazy">
+                    <span class="product-name">Elite</span>
+                    <span class="product-brand">IEKE</span>
+                </div>
+            </div>
+
+            <div class="section-title">🧴 اختر عطرك المفضل (الباك الثاني)</div>
+            <div class="product-row" id="perfumeRow2">
+                <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume1-2" data-name="My Way" data-img="images/my way.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/my way.jpg" alt="My Way" class="product-img" loading="lazy">
+                    <span class="product-name">My Way</span>
+                    <span class="product-brand">Armani</span>
+                </div>
+                <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume2-2" data-name="Prada" data-img="images/prada.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/prada.jpg" alt="Prada" class="product-img" loading="lazy">
+                    <span class="product-name">Prada</span>
+                    <span class="product-brand">Prada</span>
+                </div>
+                <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume3-2" data-name="Gucci" data-img="images/gucci.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/gucci.jpg" alt="Gucci" class="product-img" loading="lazy">
+                    <span class="product-name">Gucci</span>
+                    <span class="product-brand">Gucci</span>
+                </div>
+                <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume4-2" data-name="Good Girl" data-img="images/good girl.jpg" onclick="selectProduct(this)">
+                    <span class="check-mark">✓</span>
+                    <img src="images/good girl.jpg" alt="Good Girl" class="product-img" loading="lazy">
+                    <span class="product-name">Good Girl</span>
+                    <span class="product-brand">Carolina H.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ QUANTITY ============ -->
+        <div class="section-title">📦 عدد الباك</div>
+        <div class="option-row" id="quantityRow">
+            <div class="option-btn selected" data-qty="1" onclick="selectQuantity(this)">
+                <span class="option-icon">📦</span>
+                <span>باك واحد</span>
+                <span class="option-price">450,000 دج</span>
+            </div>
+            <div class="option-btn" data-qty="2" onclick="selectQuantity(this)">
+                <span class="option-icon">📦📦</span>
+                <span>باكين</span>
+                <span class="option-price">900,000 دج</span>
+            </div>
+        </div>
+
+        <!-- ============ DELIVERY ============ -->
+        <div class="section-title">🚚 طريقة التوصيل</div>
+        <div class="option-row" id="deliveryRow">
+            <div class="option-btn selected" data-delivery="office" data-price="400" onclick="selectDelivery(this)">
+                <span class="option-icon">🏢</span>
+                <span>توصيل للمكتب</span>
+                <span class="option-price" id="officePrice">400 دج</span>
+            </div>
+            <div class="option-btn" data-delivery="home" data-price="600" onclick="selectDelivery(this)">
+                <span class="option-icon">🏠</span>
+                <span>توصيل للمنزل</span>
+                <span class="option-price" id="homePrice">600 دج</span>
+            </div>
+        </div>
+
+        <!-- ============ CUSTOMER INFO ============ -->
+        <div class="section-title">📋 معلومات التوصيل</div>
+        <form id="orderForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label>الاسم الكامل <span class="required-star">*</span></label>
+                <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            <div class="form-group">
+                <label>رقم الهاتف <span class="required-star">*</span></label>
+                <input type="tel" id="phone" placeholder="05xxxxxxxx" required pattern="[0-9]{10}" title="رقم هاتف جزائري 10 أرقام يبدأ بـ 05/06/07">
+            </div>
+            <div class="form-group">
+                <label>الولاية <span class="required-star">*</span></label>
+                <select id="wilaya" required>
+                    <option value="">-- اختر الولاية --</option>
+                    <option value="01">01 - أدرار</option><option value="02">02 - الشلف</option><option value="03">03 - الأغواط</option>
+                    <option value="04">04 - أم البواقي</option><option value="05">05 - باتنة</option><option value="06">06 - بجاية</option>
+                    <option value="07">07 - بسكرة</option><option value="08">08 - بشار</option><option value="09">09 - البليدة</option>
+                    <option value="10">10 - البويرة</option><option value="11">11 - تمنراست</option><option value="12">12 - تبسة</option>
+                    <option value="13">13 - تلمسان</option><option value="14">14 - تيارت</option><option value="15">15 - تيزي وزو</option>
+                    <option value="16">16 - الجزائر العاصمة</option><option value="17">17 - الجلفة</option><option value="18">18 - جيجل</option>
+                    <option value="19">19 - سطيف</option><option value="20">20 - سعيدة</option><option value="21">21 - سكيكدة</option>
+                    <option value="22">22 - سيدي بلعباس</option><option value="23">23 - عنابة</option><option value="24">24 - قالمة</option>
+                    <option value="25">25 - قسنطينة</option><option value="26">26 - المدية</option><option value="27">27 - مستغانم</option>
+                    <option value="28">28 - المسيلة</option><option value="29">29 - معسكر</option><option value="30">30 - ورقلة</option>
+                    <option value="31">31 - وهران</option><option value="32">32 - البيض</option><option value="33">33 - إليزي</option>
+                    <option value="34">34 - برج بوعريريج</option><option value="35">35 - بومرداس</option><option value="36">36 - الطارف</option>
+                    <option value="37">37 - تندوف</option><option value="38">38 - تيسمسيلت</option><option value="39">39 - الوادي</option>
+                    <option value="40">40 - خنشلة</option><option value="41">41 - سوق أهراس</option><option value="42">42 - تيبازة</option>
+                    <option value="43">43 - ميلة</option><option value="44">44 - عين الدفلى</option><option value="45">45 - النعامة</option>
+                    <option value="46">46 - عين تموشنت</option><option value="47">47 - غرداية</option><option value="48">48 - غليزان</option>
+                    <option value="49">49 - المغير</option><option value="50">50 - المنيعة</option><option value="51">51 - أولاد جلال</option>
+                    <option value="52">52 - برج باجي مختار</option><option value="53">53 - بني عباس</option><option value="54">54 - تيميمون</option>
+                    <option value="55">55 - تقرت</option><option value="56">56 - جانت</option><option value="57">57 - عين صالح</option>
+                    <option value="58">58 - عين قزام</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>العنوان الكامل <span class="required-star">*</span></label>
+                <input type="text" id="address" placeholder="رقم، شارع، حي، بلدية" required>
+            </div>
+            <div class="form-group">
+                <label>ملاحظات إضافية (اختياري)</label>
+                <input type="text" id="notes" placeholder="أي ملاحظات تود إضافتها...">
+            </div>
+
+            <!-- PRICE SUMMARY -->
+            <div class="price-summary pulse-gold" id="priceSummary">
+                <div class="total-label">💰 السعر الإجمالي</div>
+                <div class="total-price" id="totalPriceDisplay">450,400 دج</div>
+                <div class="price-detail" id="priceDetail">
+                    الباك: <span>450,000 دج</span> |
+                    التوصيل: <span id="deliveryCostDisplay">400 دج</span>
+                </div>
+            </div>
+
+            <!-- BUTTONS ROW -->
+            <div class="buttons-row">
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">✨ تأكيد الطلب</span>
+                    <span class="btn-spinner"></span>
+                </button>
+                <a href="https://www.instagram.com/" target="_blank" class="instagram-btn" id="instagramBtn">
+                    📸 رؤية الصور الحقيقية للمنتج
+                </a>
+            </div>
+        </form>
+
+        <p style="text-align:center;font-size:10px;color:#555;margin-top:12px;">
+            © 2025 Eagle Noir. جميع الحقوق محفوظة.
+        </p>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ==================== روابط قابلة للتخصيص ====================
+        const LOGO_URL = 'images/logo.png'; // ⬅️ غيّر الرابط هنا إذا كان لديك لوجو مختلف
+        const INSTAGRAM_URL = 'https://www.instagram.com/eaglenoir.official/'; // ⬅️ غيّر الرابط هنا
+
+        document.getElementById('siteLogo').src = LOGO_URL;
+        document.getElementById('instagramBtn').href = INSTAGRAM_URL;
+
+        // ==================== STATE ====================
+        const state = {
+            selectedWatch1: null,
+            selectedPerfume1: null,
+            selectedWatch2: null,
+            selectedPerfume2: null,
+            quantity: 1,
+            deliveryType: 'office',
+            deliveryPrice: 400,
+        };
+
+        const previewWatch1 = document.getElementById('previewWatch1');
+        const previewPerfume1 = document.getElementById('previewPerfume1');
+        const previewWatch2 = document.getElementById('previewWatch2');
+        const previewPerfume2 = document.getElementById('previewPerfume2');
+        const pack2Group = document.getElementById('pack2Group');
+        const pack2Sections = document.getElementById('pack2Sections');
+        const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+        const deliveryCostDisplay = document.getElementById('deliveryCostDisplay');
+        const priceDetail = document.getElementById('priceDetail');
+        const officePriceEl = document.getElementById('officePrice');
+        const homePriceEl = document.getElementById('homePrice');
+        const submitBtn = document.getElementById('submitBtn');
+        const toast = document.getElementById('toast');
+        const priceSummary = document.getElementById('priceSummary');
+
+        function selectProduct(card) {
+            const type = card.dataset.type;
+            const pack = card.dataset.pack;
+            const rowId = type === 'watch' ? `watchRow${pack}` : `perfumeRow${pack}`;
+            const row = document.getElementById(rowId);
+            row.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+
+            const productData = {
+                id: card.dataset.id,
+                name: card.dataset.name,
+                img: card.dataset.img,
+            };
+
+            if (pack === '1') {
+                if (type === 'watch') {
+                    state.selectedWatch1 = productData;
+                    updatePreview(previewWatch1, productData.img, productData.name, '⌚');
+                } else {
+                    state.selectedPerfume1 = productData;
+                    updatePreview(previewPerfume1, productData.img, productData.name, '🧴');
+                }
+            } else {
+                if (type === 'watch') {
+                    state.selectedWatch2 = productData;
+                    updatePreview(previewWatch2, productData.img, productData.name, '⌚');
+                } else {
+                    state.selectedPerfume2 = productData;
+                    updatePreview(previewPerfume2, productData.img, productData.name, '🧴');
+                }
+            }
+            updatePrice();
+        }
+
+        function updatePreview(element, imgSrc, altText, fallbackEmoji) {
+            element.classList.add('selected');
+            const placeholder = element.querySelector('.placeholder-icon');
+            if (placeholder) placeholder.style.display = 'none';
+            let img = element.querySelector('img');
+            if (!img) {
+                img = document.createElement('img');
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                element.appendChild(img);
+            }
+            img.src = imgSrc;
+            img.alt = altText;
+            img.style.display = 'block';
+        }
+
+        function selectQuantity(btn) {
+            document.querySelectorAll('#quantityRow .option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            const newQty = parseInt(btn.dataset.qty);
+            if (newQty !== state.quantity) {
+                state.quantity = newQty;
+                if (newQty === 2) {
+                    pack2Sections.classList.remove('hidden');
+                    pack2Group.classList.remove('hidden');
+                } else {
+                    pack2Sections.classList.add('hidden');
+                    pack2Group.classList.add('hidden');
+                    state.selectedWatch2 = null;
+                    state.selectedPerfume2 = null;
+                    document.querySelectorAll('#watchRow2 .product-card, #perfumeRow2 .product-card').forEach(c => c.classList.remove('selected'));
+                    resetPreview(previewWatch2, '⌚');
+                    resetPreview(previewPerfume2, '🧴');
+                }
+            }
+            updateDeliveryOptions();
+            updatePrice();
+        }
+
+        function resetPreview(element, emoji) {
+            element.classList.remove('selected');
+            const img = element.querySelector('img');
+            if (img) img.remove();
+            let placeholder = element.querySelector('.placeholder-icon');
+            if (!placeholder) {
+                placeholder = document.createElement('span');
+                placeholder.className = 'placeholder-icon';
+                placeholder.textContent = emoji;
+                element.appendChild(placeholder);
+            } else {
+                placeholder.style.display = 'flex';
+            }
+        }
+
+        function selectDelivery(btn) {
+            document.querySelectorAll('#deliveryRow .option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            state.deliveryType = btn.dataset.delivery;
+            updateDeliveryPrice();
+            updatePrice();
+        }
+
+        function updateDeliveryPrice() {
+            if (state.quantity === 2) {
+                state.deliveryPrice = state.deliveryType === 'office' ? 0 : 300;
+            } else {
+                state.deliveryPrice = state.deliveryType === 'office' ? 400 : 600;
+            }
+        }
+
+        function updateDeliveryOptions() {
+            if (state.quantity === 2) {
+                officePriceEl.textContent = 'مجاني 🎉';
+                homePriceEl.textContent = '300 دج';
+                document.querySelector('[data-delivery="office"]').dataset.price = '0';
+                document.querySelector('[data-delivery="home"]').dataset.price = '300';
+            } else {
+                officePriceEl.textContent = '400 دج';
+                homePriceEl.textContent = '600 دج';
+                document.querySelector('[data-delivery="office"]').dataset.price = '400';
+                document.querySelector('[data-delivery="home"]').dataset.price = '600';
+            }
+            updateDeliveryPrice();
+        }
+
+        function updatePrice() {
+            const packPrice = state.quantity * 450000;
+            updateDeliveryPrice();
+            const total = packPrice + state.deliveryPrice;
+            totalPriceDisplay.textContent = total.toLocaleString('ar-DZ') + ' دج';
+            deliveryCostDisplay.textContent = state.deliveryPrice.toLocaleString('ar-DZ') + ' دج';
+            const deliveryLabel = state.deliveryPrice === 0 ? 'مجاني 🎉' : state.deliveryPrice.toLocaleString('ar-DZ') + ' دج';
+            priceDetail.innerHTML = `الباك (×${state.quantity}): <span>${packPrice.toLocaleString('ar-DZ')} دج</span> | التوصيل: <span>${deliveryLabel}</span>`;
+            priceSummary.classList.remove('pulse-gold');
+            void priceSummary.offsetWidth;
+            priceSummary.classList.add('pulse-gold');
+        }
+
+        function showToast(message, isError = false) {
+            toast.textContent = message;
+            toast.className = 'toast ' + (isError ? 'error' : '');
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+
+            if (!state.selectedWatch1 || !state.selectedPerfume1) {
+                showToast('⚠️ الرجاء اختيار الساعة والعطر للباك الأول', true);
+                return;
+            }
+            if (state.quantity === 2 && (!state.selectedWatch2 || !state.selectedPerfume2)) {
+                showToast('⚠️ الرجاء اختيار الساعة والعطر للباك الثاني', true);
+                return;
+            }
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const phoneRaw = document.getElementById('phone').value.trim();
+            const wilaya = document.getElementById('wilaya').value;
+            const address = document.getElementById('address').value.trim();
+            const notes = document.getElementById('notes').value.trim();
+
+            if (!fullName) { showToast('⚠️ الرجاء إدخال الاسم الكامل', true); return; }
+            if (!wilaya) { showToast('⚠️ الرجاء اختيار الولاية', true); return; }
+            if (!address) { showToast('⚠️ الرجاء إدخال العنوان الكامل', true); return; }
+
+            const phoneDigits = phoneRaw.replace(/\D/g, '');
+            if (!/^(05|06|07)\d{8}$/.test(phoneDigits)) {
+                showToast('⚠️ رقم الهاتف غير صالح. يجب أن يبدأ بـ 05/06/07 ويتكون من 10 أرقام.', true);
+                return;
+            }
+
+            const packPrice = state.quantity * 450000;
+            const totalPrice = packPrice + state.deliveryPrice;
+
+            const orderData = {
+                orderId: 'EN-' + Date.now().toString(36).toUpperCase(),
+                timestamp: new Date().toLocaleString('ar-DZ', { timeZone: 'Africa/Algiers' }),
+                quantity: state.quantity,
+                pack1Watch: state.selectedWatch1.name,
+                pack1Perfume: state.selectedPerfume1.name,
+                pack2Watch: state.selectedWatch2 ? state.selectedWatch2.name : '',
+                pack2Perfume: state.selectedPerfume2 ? state.selectedPerfume2.name : '',
+                packPrice: packPrice,
+                deliveryType: state.deliveryType === 'office' ? 'مكتب' : 'منزل',
+                deliveryPrice: state.deliveryPrice,
+                totalPrice: totalPrice,
+                fullName, phone: phoneDigits, wilaya, address,
+                notes: notes || 'لا يوجد',
+            };
+
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            try {
+                await sendToGoogleSheets(orderData);
+                showToast('✅ تم إرسال الطلب بنجاح! سنتواصل معك قريباً');
+                document.getElementById('orderForm').reset();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (err) {
+                console.error(err);
+                showToast('❌ حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى.', true);
+            } finally {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        }
+
+        const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+        async function sendToGoogleSheets(data) {
+            if (!GOOGLE_SHEETS_URL || GOOGLE_SHEETS_URL.includes('YOUR_GOOGLE_APPS_SCRIPT')) {
+                console.warn('⚠️ Google Sheets URL غير مضبوط. بيانات الطلب (محاكاة):', data);
+                await new Promise(resolve => setTimeout(resolve, 1200));
+                return { success: true, simulated: true };
+            }
+            await fetch(GOOGLE_SHEETS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            return { success: true };
+        }
+
+        function init() {
+            updateDeliveryOptions();
+            updatePrice();
+            document.querySelectorAll('.product-card, .option-btn').forEach(el => {
+                el.setAttribute('tabindex', '0');
+                el.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+                });
+            });
+        }
+        init();
+    </script>
+</body>
+</html>
