@@ -975,7 +975,6 @@
         function updatePrice() {
             if (state.quantity === null || state.deliveryType === null) {
                 totalPriceDisplay.textContent = '---';
-                deliveryCostDisplay.textContent = '---';
                 priceDetail.innerHTML = 'الرجاء اختيار عدد الباك وطريقة التوصيل';
                 return;
             }
@@ -986,7 +985,6 @@
 
             const total = packPrice + state.deliveryPrice;
             totalPriceDisplay.textContent = total.toLocaleString('ar-DZ') + ' دج';
-            deliveryCostDisplay.textContent = state.deliveryPrice.toLocaleString('ar-DZ') + ' دج';
             const deliveryLabel = state.deliveryPrice === 0 ? 'مجاني 🎉' : state.deliveryPrice.toLocaleString('ar-DZ') + ' دج';
             priceDetail.innerHTML = `الباك (×${state.quantity}): <span>${packPrice.toLocaleString('ar-DZ')} دج</span> | التوصيل: <span>${deliveryLabel}</span>`;
             priceSummary.classList.remove('pulse-gold');
