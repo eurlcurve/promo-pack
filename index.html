@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eagle Noir | Pack IEKE + عطر</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Eagle Noir | عرض الباك المزدوج + عطر مجاني</title>
     <style>
         :root {
             --bg: #0a0a0a;
@@ -112,6 +112,16 @@
             background: var(--border-gold);
             margin: 0 6px;
         }
+        .gift-badge {
+            background: linear-gradient(135deg, #b8860b, #ffd966);
+            color: #000;
+            font-size: 9px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 30px;
+            margin-right: 6px;
+            white-space: nowrap;
+        }
 
         .container {
             max-width: 500px;
@@ -124,11 +134,11 @@
             padding: 10px 0 6px;
         }
         .header .logo-img {
-            width: 120px;
+            width: 200px;
             height: auto;
-            max-height: 100px;
+            max-height: 200px;
             object-fit: contain;
-            margin-bottom: 6px;
+            margin-bottom: -30px;
             filter: drop-shadow(0 4px 8px rgba(201, 169, 110, 0.3));
         }
         .header .brand-name {
@@ -394,6 +404,15 @@
         .price-summary .price-detail span {
             color: var(--gold-light);
         }
+        .gift-highlight {
+            color: #ffd966;
+            background: rgba(201,169,110,0.15);
+            display: inline-block;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-weight: bold;
+            margin-top: 6px;
+        }
 
         .buttons-row {
             display: flex;
@@ -590,14 +609,14 @@
                 <span class="placeholder-icon">🧴</span>
             </div>
         </div>
+        <div class="gift-badge hidden" id="freeGiftBadge">🎁 عطر مجاني!</div>
     </div>
 
     <div class="container">
         <div class="header">
             <img id="siteLogo" src="images/logo.png" alt="Eagle Noir Logo" class="logo-img">
-            <div class="brand-name">Eagle Noir</div>
             <div class="subtitle">Luxury Pack Collection</div>
-            <div class="pack-badge">⚡ Pack Exclusif</div>
+            <div class="pack-badge">🎁 عرض خاص: باك مزدوج + عطر مجاني</div>
         </div>
 
         <div class="section-title">⌚ اختر ساعتك من IEKE (الباك الأول)</div>
@@ -605,26 +624,26 @@
             <div class="product-card" data-type="watch" data-pack="1" data-id="watch1" data-name="IEKE Royal" data-img="images/mod1.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/mod1.jpg" alt="IEKE Royal" class="product-img" loading="lazy">
-                <span class="product-name">Royal</span>
-                <span class="product-brand">IEKE</span>
+                <span class="product-name">براسلي جلدي</span>
+                <span class="product-brand">لون أسود</span>
             </div>
             <div class="product-card" data-type="watch" data-pack="1" data-id="watch2" data-name="IEKE Sport" data-img="images/mod2.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/mod2.jpg" alt="IEKE Sport" class="product-img" loading="lazy">
-                <span class="product-name">Sport</span>
-                <span class="product-brand">IEKE</span>
+                <span class="product-name">براسلي جلدي</span>
+                <span class="product-brand">لون بني فاتح</span>
             </div>
             <div class="product-card" data-type="watch" data-pack="1" data-id="watch3" data-name="IEKE Classic" data-img="images/mod3.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/mod3.jpg" alt="IEKE Classic" class="product-img" loading="lazy">
-                <span class="product-name">Classic</span>
-                <span class="product-brand">IEKE</span>
+                <span class="product-name">براسلي مقاوم للصدأ</span>
+                <span class="product-brand">لون ابيض فخم</span>
             </div>
             <div class="product-card" data-type="watch" data-pack="1" data-id="watch4" data-name="IEKE Elite" data-img="images/mod4.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/mod4.jpg" alt="IEKE Elite" class="product-img" loading="lazy">
-                <span class="product-name">Elite</span>
-                <span class="product-brand">IEKE</span>
+                <span class="product-name">براسلي مقاوم للصدأ</span>
+                <span class="product-brand">لون فخاري</span>
             </div>
         </div>
 
@@ -633,26 +652,26 @@
             <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume1" data-name="My Way" data-img="images/my way.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/my way.jpg" alt="My Way" class="product-img" loading="lazy">
-                <span class="product-name">My Way</span>
-                <span class="product-brand">Armani</span>
+                <span class="product-name">Sense</span>
+                <span class="product-brand">laverne Georgina</span>
             </div>
             <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume2" data-name="Prada" data-img="images/prada.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/prada.jpg" alt="Prada" class="product-img" loading="lazy">
-                <span class="product-name">Prada</span>
-                <span class="product-brand">Prada</span>
+                <span class="product-name">Dream</span>
+                <span class="product-brand">laverne Georgina</span>
             </div>
             <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume3" data-name="Gucci" data-img="images/gucci.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/gucci.jpg" alt="Gucci" class="product-img" loading="lazy">
-                <span class="product-name">Gucci</span>
-                <span class="product-brand">Gucci</span>
+                <span class="product-name">Sense</span>
+                <span class="product-brand">bellezza Georgina</span>
             </div>
             <div class="product-card" data-type="perfume" data-pack="1" data-id="perfume4" data-name="Good Girl" data-img="images/good girl.jpg" onclick="selectProduct(this)">
                 <span class="check-mark">✓</span>
                 <img src="images/good girl.jpg" alt="Good Girl" class="product-img" loading="lazy">
-                <span class="product-name">Good Girl</span>
-                <span class="product-brand">Carolina H.</span>
+                <span class="product-name">Forever</span>
+                <span class="product-brand">laverne Georgina</span>
             </div>
         </div>
 
@@ -662,26 +681,26 @@
                 <div class="product-card" data-type="watch" data-pack="2" data-id="watch1-2" data-name="IEKE Royal" data-img="images/mod1.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/mod1.jpg" alt="IEKE Royal" class="product-img" loading="lazy">
-                    <span class="product-name">Royal</span>
-                    <span class="product-brand">IEKE</span>
+                    <span class="product-name">براسلي جلدي</span>
+                    <span class="product-brand">لون اسود</span>
                 </div>
                 <div class="product-card" data-type="watch" data-pack="2" data-id="watch2-2" data-name="IEKE Sport" data-img="images/mod2.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/mod2.jpg" alt="IEKE Sport" class="product-img" loading="lazy">
-                    <span class="product-name">Sport</span>
-                    <span class="product-brand">IEKE</span>
+                    <span class="product-name">براسلي جلدي</span>
+                    <span class="product-brand">لون بني فاتح</span>
                 </div>
                 <div class="product-card" data-type="watch" data-pack="2" data-id="watch3-2" data-name="IEKE Classic" data-img="images/mod3.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/mod3.jpg" alt="IEKE Classic" class="product-img" loading="lazy">
-                    <span class="product-name">Classic</span>
-                    <span class="product-brand">IEKE</span>
+                    <span class="product-name">براسلي مقاوم للصدأ</span>
+                    <span class="product-brand">لون ابيض فخم</span>
                 </div>
                 <div class="product-card" data-type="watch" data-pack="2" data-id="watch4-2" data-name="IEKE Elite" data-img="images/mod4.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/mod4.jpg" alt="IEKE Elite" class="product-img" loading="lazy">
-                    <span class="product-name">Elite</span>
-                    <span class="product-brand">IEKE</span>
+                    <span class="product-name">براسلي مقاوم للصدأ</span>
+                    <span class="product-brand">لون فخاري</span>
                 </div>
             </div>
 
@@ -690,26 +709,26 @@
                 <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume1-2" data-name="My Way" data-img="images/my way.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/my way.jpg" alt="My Way" class="product-img" loading="lazy">
-                    <span class="product-name">My Way</span>
-                    <span class="product-brand">Armani</span>
+                    <span class="product-name">Sense</span>
+                    <span class="product-brand">laverne Georgina</span>
                 </div>
                 <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume2-2" data-name="Prada" data-img="images/prada.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/prada.jpg" alt="Prada" class="product-img" loading="lazy">
-                    <span class="product-name">Prada</span>
-                    <span class="product-brand">Prada</span>
+                    <span class="product-name">Dream</span>
+                    <span class="product-brand">laverne Georgina</span>
                 </div>
                 <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume3-2" data-name="Gucci" data-img="images/gucci.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/gucci.jpg" alt="Gucci" class="product-img" loading="lazy">
-                    <span class="product-name">Gucci</span>
-                    <span class="product-brand">Gucci</span>
+                    <span class="product-name">Sense</span>
+                    <span class="product-brand">bellezza Georgina</span>
                 </div>
                 <div class="product-card" data-type="perfume" data-pack="2" data-id="perfume4-2" data-name="Good Girl" data-img="images/good girl.jpg" onclick="selectProduct(this)">
                     <span class="check-mark">✓</span>
                     <img src="images/good girl.jpg" alt="Good Girl" class="product-img" loading="lazy">
-                    <span class="product-name">Good Girl</span>
-                    <span class="product-brand">Carolina H.</span>
+                    <span class="product-name">Forever</span>
+                    <span class="product-brand">laverne Georgina</span>
                 </div>
             </div>
         </div>
@@ -719,26 +738,26 @@
             <div class="option-btn" data-qty="1" onclick="selectQuantity(this)">
                 <span class="option-icon">📦</span>
                 <span>باك واحد</span>
-                <span class="option-price">450,000 دج</span>
+                <span class="option-price">4500 دج</span>
             </div>
             <div class="option-btn" data-qty="2" onclick="selectQuantity(this)">
                 <span class="option-icon">📦📦</span>
-                <span>اثنين باك</span>
-                <span class="option-price">900,000 دج</span>
+                <span>باكين + عطر مجاني 🎁</span>
+                <span class="option-price">9000 دج</span>
             </div>
         </div>
 
-        <div class="section-title">🚚 طريقة التوصيل</div>
+        <div class="section-title">🚚 طريقة التوصيل (سعر عادي)</div>
         <div class="option-row" id="deliveryRow">
             <div class="option-btn" data-delivery="office" data-price="400" onclick="selectDelivery(this)">
                 <span class="option-icon">🏢</span>
                 <span>توصيل للمكتب</span>
-                <span class="option-price" id="officePrice">400 دج</span>
+                <span class="option-price">400 دج</span>
             </div>
             <div class="option-btn" data-delivery="home" data-price="600" onclick="selectDelivery(this)">
                 <span class="option-icon">🏠</span>
                 <span>توصيل للمنزل</span>
-                <span class="option-price" id="homePrice">600 دج</span>
+                <span class="option-price">600 دج</span>
             </div>
         </div>
 
@@ -804,7 +823,6 @@
                 </a>
             </div>
         </form>
-
         <p style="text-align:center;font-size:10px;color:#555;margin-top:12px;">
             © 2025 Eagle Noir. جميع الحقوق محفوظة.
         </p>
@@ -825,7 +843,6 @@
             selectedPerfume2: null,
             quantity: null,
             deliveryType: null,
-            deliveryPrice: null,
         };
 
         const previewWatch1 = document.getElementById('previewWatch1');
@@ -835,13 +852,10 @@
         const pack2Group = document.getElementById('pack2Group');
         const pack2Sections = document.getElementById('pack2Sections');
         const totalPriceDisplay = document.getElementById('totalPriceDisplay');
-        const deliveryCostDisplay = document.getElementById('deliveryCostDisplay');
         const priceDetail = document.getElementById('priceDetail');
-        const officePriceEl = document.getElementById('officePrice');
-        const homePriceEl = document.getElementById('homePrice');
         const submitBtn = document.getElementById('submitBtn');
         const toast = document.getElementById('toast');
-        const priceSummary = document.getElementById('priceSummary');
+        const freeGiftBadge = document.getElementById('freeGiftBadge');
 
         function selectProduct(card) {
             const type = card.dataset.type;
@@ -894,32 +908,6 @@
             img.style.display = 'block';
         }
 
-        function selectQuantity(btn) {
-            document.querySelectorAll('#quantityRow .option-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            const newQty = parseInt(btn.dataset.qty);
-            if (newQty !== state.quantity) {
-                state.quantity = newQty;
-                if (newQty === 2) {
-                    pack2Sections.classList.remove('hidden');
-                    pack2Group.classList.remove('hidden');
-                } else {
-                    pack2Sections.classList.add('hidden');
-                    pack2Group.classList.add('hidden');
-                    state.selectedWatch2 = null;
-                    state.selectedPerfume2 = null;
-                    document.querySelectorAll('#watchRow2 .product-card, #perfumeRow2 .product-card').forEach(c => c.classList.remove('selected'));
-                    resetPreview(previewWatch2, '⌚');
-                    resetPreview(previewPerfume2, '🧴');
-                }
-                updateDeliveryOptions();
-                if (state.deliveryType) {
-                    updateDeliveryPrice();
-                }
-                updatePrice();
-            }
-        }
-
         function resetPreview(element, emoji) {
             element.classList.remove('selected');
             const img = element.querySelector('img');
@@ -935,41 +923,33 @@
             }
         }
 
+        function selectQuantity(btn) {
+            document.querySelectorAll('#quantityRow .option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            const newQty = parseInt(btn.dataset.qty);
+            state.quantity = newQty;
+            if (newQty === 2) {
+                pack2Sections.classList.remove('hidden');
+                pack2Group.classList.remove('hidden');
+                freeGiftBadge.classList.remove('hidden');
+            } else {
+                pack2Sections.classList.add('hidden');
+                pack2Group.classList.add('hidden');
+                freeGiftBadge.classList.add('hidden');
+                state.selectedWatch2 = null;
+                state.selectedPerfume2 = null;
+                document.querySelectorAll('#watchRow2 .product-card, #perfumeRow2 .product-card').forEach(c => c.classList.remove('selected'));
+                resetPreview(previewWatch2, '⌚');
+                resetPreview(previewPerfume2, '🧴');
+            }
+            updatePrice();
+        }
+
         function selectDelivery(btn) {
             document.querySelectorAll('#deliveryRow .option-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
             state.deliveryType = btn.dataset.delivery;
-            updateDeliveryPrice();
             updatePrice();
-        }
-
-        function updateDeliveryPrice() {
-            if (state.quantity === null || state.deliveryType === null) {
-                state.deliveryPrice = null;
-                return;
-            }
-            if (state.quantity === 2) {
-                state.deliveryPrice = state.deliveryType === 'office' ? 0 : 300;
-            } else {
-                state.deliveryPrice = state.deliveryType === 'office' ? 400 : 600;
-            }
-        }
-
-        function updateDeliveryOptions() {
-            if (state.quantity === 2) {
-                officePriceEl.textContent = 'مجاني 🎉';
-                homePriceEl.textContent = '300 دج';
-                document.querySelector('[data-delivery="office"]').dataset.price = '0';
-                document.querySelector('[data-delivery="home"]').dataset.price = '300';
-            } else if (state.quantity === 1) {
-                officePriceEl.textContent = '400 دج';
-                homePriceEl.textContent = '600 دج';
-                document.querySelector('[data-delivery="office"]').dataset.price = '400';
-                document.querySelector('[data-delivery="home"]').dataset.price = '600';
-            } else {
-                officePriceEl.textContent = '400 دج';
-                homePriceEl.textContent = '600 دج';
-            }
         }
 
         function updatePrice() {
@@ -979,17 +959,20 @@
                 return;
             }
 
-            const packPrice = state.quantity * 450000;
-            updateDeliveryPrice();
-            if (state.deliveryPrice === null) return;
-
-            const total = packPrice + state.deliveryPrice;
+            const packPrice = state.quantity * 4500;
+            const deliveryPrice = state.deliveryType === 'office' ? 400 : 600;
+            const total = packPrice + deliveryPrice;
             totalPriceDisplay.textContent = total.toLocaleString('ar-DZ') + ' دج';
-            const deliveryLabel = state.deliveryPrice === 0 ? 'مجاني 🎉' : state.deliveryPrice.toLocaleString('ar-DZ') + ' دج';
-            priceDetail.innerHTML = `الباك (×${state.quantity}): <span>${packPrice.toLocaleString('ar-DZ')} دج</span> | التوصيل: <span>${deliveryLabel}</span>`;
-            priceSummary.classList.remove('pulse-gold');
-            void priceSummary.offsetWidth;
-            priceSummary.classList.add('pulse-gold');
+            const deliveryLabel = deliveryPrice.toLocaleString('ar-DZ') + ' دج';
+
+            let giftHtml = '';
+            if (state.quantity === 2) {
+                giftHtml = '<br><span class="gift-highlight">🎁 هدية خاصة: عطر مجاني مع شراء باكين (يُضاف للطلب)</span>';
+            }
+            priceDetail.innerHTML = `الباك (×${state.quantity}): <span>${packPrice.toLocaleString('ar-DZ')} دج</span> | التوصيل: <span>${deliveryLabel}</span>${giftHtml}`;
+            document.getElementById('priceSummary').classList.remove('pulse-gold');
+            void document.getElementById('priceSummary').offsetWidth;
+            document.getElementById('priceSummary').classList.add('pulse-gold');
         }
 
         function showToast(message, isError = false) {
@@ -1036,9 +1019,9 @@
                 return;
             }
 
-            updateDeliveryPrice();
-            const packPrice = state.quantity * 450000;
-            const totalPrice = packPrice + state.deliveryPrice;
+            const packPrice = state.quantity * 4500;
+            const deliveryPrice = state.deliveryType === 'office' ? 400 : 600;
+            const totalPrice = packPrice + deliveryPrice;
 
             const orderData = {
                 orderId: 'EN-' + Date.now().toString(36).toUpperCase(),
@@ -1048,9 +1031,10 @@
                 pack1Perfume: state.selectedPerfume1.name,
                 pack2Watch: state.selectedWatch2 ? state.selectedWatch2.name : '',
                 pack2Perfume: state.selectedPerfume2 ? state.selectedPerfume2.name : '',
+                freePerfumeGift: state.quantity === 2 ? "نعم (عطر مجاني إضافي)" : "لا",
                 packPrice: packPrice,
                 deliveryType: state.deliveryType === 'office' ? 'مكتب' : 'منزل',
-                deliveryPrice: state.deliveryPrice,
+                deliveryPrice: deliveryPrice,
                 totalPrice: totalPrice,
                 fullName, phone: phoneDigits, wilaya, address,
                 notes: notes || 'لا يوجد',
@@ -1060,14 +1044,12 @@
             submitBtn.disabled = true;
             try {
                 await sendToGoogleSheets(orderData);
-                showToast('✅ تم إرسال الطلب بنجاح! سنتواصل معك قريباً');
+                showToast('✅ تم إرسال الطلب بنجاح! سنتواصل معك قريباً (مع العطر المجاني)');
                 document.getElementById('orderForm').reset();
                 state.quantity = null;
                 state.deliveryType = null;
-                state.deliveryPrice = null;
                 document.querySelectorAll('#quantityRow .option-btn, #deliveryRow .option-btn').forEach(b => b.classList.remove('selected'));
                 updatePrice();
-                updateDeliveryOptions();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
@@ -1081,25 +1063,13 @@
         const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzcHCSOC9G8UyHltl71omTZKvMkVG2ikZ9yuwf349QE5jKPw_0kQ_bEu11Qe6t5Sj1J/exec';
 
         async function sendToGoogleSheets(data) {
-            // استخدام FormData لإرسال آمن ومضمون
             const formData = new FormData();
             formData.append('data', JSON.stringify(data));
-            
-            try {
-                await fetch(GOOGLE_SHEETS_URL, {
-                    method: 'POST',
-                    body: formData
-                });
-                // في وضع no-cors (الافتراضي لـ FormData) لا يمكن قراءة الرد، لذلك نعتبر النجاح إذا لم يحدث خطأ
-                return { success: true };
-            } catch (error) {
-                console.error('خطأ في الإرسال:', error);
-                throw error;
-            }
+            await fetch(GOOGLE_SHEETS_URL, { method: 'POST', body: formData });
+            return { success: true };
         }
 
         function init() {
-            updateDeliveryOptions();
             updatePrice();
             document.querySelectorAll('.product-card, .option-btn').forEach(el => {
                 el.setAttribute('tabindex', '0');
